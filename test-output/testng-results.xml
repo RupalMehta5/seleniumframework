@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Sample test Suite" duration-ms="54950" started-at="2020-05-08T01:46:26Z" finished-at="2020-05-08T01:47:21Z">
+    <groups>
+    </groups>
+    <test name="Sample test" duration-ms="54950" started-at="2020-05-08T01:46:26Z" finished-at="2020-05-08T01:47:21Z">
+      <class name="com.training.sanity.tests.LoginTests">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.LoginTests@51565ec2]" name="setUpBeforeClass" is-config="true" duration-ms="21" started-at="2020-05-07T20:46:26Z" finished-at="2020-05-07T20:46:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpBeforeClass -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.LoginTests@51565ec2]" name="setUp" is-config="true" duration-ms="42797" started-at="2020-05-07T20:46:26Z" finished-at="2020-05-07T20:47:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="validLoginTest()[pri:0, instance:com.training.sanity.tests.LoginTests@51565ec2]" name="validLoginTest" duration-ms="12105" started-at="2020-05-07T20:47:09Z" finished-at="2020-05-07T20:47:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validLoginTest -->
+      </class> <!-- com.training.sanity.tests.LoginTests -->
+    </test> <!-- Sample test -->
+  </suite> <!-- Sample test Suite -->
+</testng-results>
