@@ -41,18 +41,61 @@ public class LoginTests {
 		
 	}
 	
-	/*@AfterMethod
+	@AfterMethod
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
 		driver.quit();
-	}*/
+	}
+	
+	
+	/**
+	 * TC #13 ->To Verify whether application allows the admin to change the profile details
+	 */
 	@Test
-	public void validLoginTest() throws InterruptedException {
+	public void validprofiledetails() throws InterruptedException {
 		loginPOM.Loginbutton();
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
 		loginPOM.clickLoginBtn(); 
 		loginPOM.userclick();
+		loginPOM.linksverify();
+		loginPOM.profileclick();
+		loginPOM.sendlastname("Manzoor");
+		loginPOM.sendphone("9876543210");
 		screenShot.captureScreenShot("First");
 	}
+	
+	/**
+	 * TC #15 ->To Verify whether application allows the admin to logout from the application
+	 */
+	
+	@Test
+	public void logoutCheck()   {
+		loginPOM.Loginbutton();
+		loginPOM.sendUserName("admin");
+		loginPOM.sendPassword("admin@123");
+		loginPOM.clickLoginBtn(); 
+		loginPOM.userclick();
+		loginPOM.linksverify();
+		loginPOM.logout();
+		screenShot.captureScreenShot("Second");
+	}
+	
+	/**
+	 * TC #15 ->TO Verify whether application allows admin to filter properties details based on the search criteria
+	 */
+	@Test
+	public void filterProperties() throws InterruptedException   {
+		loginPOM.Loginbutton();
+		loginPOM.sendUserName("admin");
+		loginPOM.sendPassword("admin@123");
+		loginPOM.clickLoginBtn(); 
+		loginPOM.clickProperties();
+		loginPOM.clickAllProperties();
+		loginPOM.allDateslist();
+		loginPOM.clickFilterbut();
+		loginPOM.postDetails();
+		screenShot.captureScreenShot("Third");
+	}
+	
 }
