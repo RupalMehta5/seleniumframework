@@ -6,9 +6,7 @@
       <class name="com.training.sanity.tests.LoginTests">
         <methods>
           <include name="setUpBeforeClass"/>
-          <include name="logoutCheck"/>
           <include name="validprofiledetails"/>
-          <include name="filterProperties"/>
           <include name="setUp"/>
           <include name="tearDown"/>
         </methods>

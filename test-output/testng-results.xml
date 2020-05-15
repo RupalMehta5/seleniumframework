@@ -2,48 +2,48 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Sample test Suite" duration-ms="91824" started-at="2020-05-08T21:50:27Z" finished-at="2020-05-08T21:51:59Z">
+  <suite name="Sample test Suite" duration-ms="115542" started-at="2020-05-15T22:18:54Z" finished-at="2020-05-15T22:20:50Z">
     <groups>
     </groups>
-    <test name="Sample test" duration-ms="91824" started-at="2020-05-08T21:50:27Z" finished-at="2020-05-08T21:51:59Z">
+    <test name="Sample test" duration-ms="115542" started-at="2020-05-15T22:18:54Z" finished-at="2020-05-15T22:20:50Z">
       <class name="com.training.sanity.tests.LoginTests">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="setUpBeforeClass" is-config="true" duration-ms="15" started-at="2020-05-08T16:50:27Z" finished-at="2020-05-08T16:50:27Z">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="setUpBeforeClass" is-config="true" duration-ms="15" started-at="2020-05-15T17:18:54Z" finished-at="2020-05-15T17:18:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="setUp" is-config="true" duration-ms="19257" started-at="2020-05-08T16:50:27Z" finished-at="2020-05-08T16:50:46Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="setUp" is-config="true" duration-ms="21715" started-at="2020-05-15T17:18:54Z" finished-at="2020-05-15T17:19:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="filterProperties()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="filterProperties" duration-ms="13039" started-at="2020-05-08T16:50:46Z" finished-at="2020-05-08T16:50:59Z">
+        <test-method status="PASS" signature="homeScreen()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="homeScreen" duration-ms="21293" started-at="2020-05-15T17:19:16Z" finished-at="2020-05-15T17:19:37Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- filterProperties -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="tearDown" is-config="true" duration-ms="1865" started-at="2020-05-08T16:50:59Z" finished-at="2020-05-08T16:51:01Z">
+        </test-method> <!-- homeScreen -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="tearDown" is-config="true" duration-ms="1878" started-at="2020-05-15T17:19:37Z" finished-at="2020-05-15T17:19:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="setUp" is-config="true" duration-ms="18718" started-at="2020-05-08T16:51:01Z" finished-at="2020-05-08T16:51:20Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="setUp" is-config="true" duration-ms="20796" started-at="2020-05-15T17:19:39Z" finished-at="2020-05-15T17:20:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="logoutCheck()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="logoutCheck" duration-ms="8881" started-at="2020-05-08T16:51:20Z" finished-at="2020-05-08T16:51:29Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logoutCheck -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="tearDown" is-config="true" duration-ms="1828" started-at="2020-05-08T16:51:29Z" finished-at="2020-05-08T16:51:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="setUp" is-config="true" duration-ms="16554" started-at="2020-05-08T16:51:30Z" finished-at="2020-05-08T16:51:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validprofiledetails()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="validprofiledetails" duration-ms="9749" started-at="2020-05-08T16:51:47Z" finished-at="2020-05-08T16:51:57Z">
+        <test-method status="PASS" signature="validprofiledetails()[pri:1, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="validprofiledetails" duration-ms="12990" started-at="2020-05-15T17:20:00Z" finished-at="2020-05-15T17:20:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validprofiledetails -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="tearDown" is-config="true" duration-ms="1868" started-at="2020-05-08T16:51:57Z" finished-at="2020-05-08T16:51:59Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="tearDown" is-config="true" duration-ms="1829" started-at="2020-05-15T17:20:13Z" finished-at="2020-05-15T17:20:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="setUp" is-config="true" duration-ms="18258" started-at="2020-05-15T17:20:15Z" finished-at="2020-05-15T17:20:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="deletepost()[pri:2, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="deletepost" duration-ms="14930" started-at="2020-05-15T17:20:33Z" finished-at="2020-05-15T17:20:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deletepost -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.LoginTests@482f8f11]" name="tearDown" is-config="true" duration-ms="1822" started-at="2020-05-15T17:20:48Z" finished-at="2020-05-15T17:20:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

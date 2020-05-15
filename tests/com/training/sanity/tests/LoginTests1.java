@@ -1,6 +1,5 @@
 package com.training.sanity.tests;
 
-import java.awt.AWTException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -13,14 +12,18 @@ import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
 import com.training.pom.LoginPOM;
+import com.training.pom.LoginPOM1;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class LoginTests {
+
+
+ 
+public class LoginTests1 {
 
 	private WebDriver driver;
 	private String baseUrl;
-	private LoginPOM loginPOM;
+	private LoginPOM1 loginPOM;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -34,71 +37,72 @@ public class LoginTests {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		loginPOM = new LoginPOM(driver);
+		loginPOM = new LoginPOM1(driver); 
 		baseUrl = properties.getProperty("baseURL");
-		screenShot = new ScreenShot(driver);
-		// open the browser
+		screenShot = new ScreenShot(driver); 
+		// open the browser 
 		driver.get(baseUrl);
-
+		
 	}
-
+	
 	@AfterMethod
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
 		driver.quit();
 	}
 
-	/**
-	 * TC #51 ->To verify whether application displays property details in all
-	 * properties upon clicking Restore link of selected property details in trash
-	 */
-	@Test(priority=1)
+	
+	
+	 /* TC #13 ->To Verify whether application allows the admin to change the profile details*/
+	
+	@Test
 	public void validprofiledetails() throws InterruptedException {
 		loginPOM.Loginbutton();
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
-		loginPOM.clickLoginBtn();
-		loginPOM.clickProperties();
-		loginPOM.clickAllProperties();
-		loginPOM.trash();
-		loginPOM.restorelink();
+		loginPOM.clickLoginBtn(); 
+		loginPOM.userclick();
+		loginPOM.linksverify();
+		loginPOM.profileclick();
+		loginPOM.sendlastname("Manzoor");
+		loginPOM.sendphone("9876543210");
 		screenShot.captureScreenShot("First");
 	}
-
-	/**
-	 * TC #52 ->To verify whether application allows admin to delete post
-	 * permanently
-	 * 
-	 * @throws InterruptedException
-	 */
-	@Test(priority=2)
-	public void deletepost() throws InterruptedException {
+	
+	
+	
+	/* TC #15 ->To Verify whether application allows the admin to logout from the application */
+	 
+	 
+	
+	@Test
+	public void logoutCheck()   {
 		loginPOM.Loginbutton();
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
-		loginPOM.clickLoginBtn();
-		loginPOM.clickProperties();
-		loginPOM.clickAllProperties();
-		loginPOM.moveproperty();
+		loginPOM.clickLoginBtn(); 
+		loginPOM.userclick();
+		loginPOM.linksverify();
+		loginPOM.logout();
 		screenShot.captureScreenShot("Second");
 	}
-
-	/**
-	 * TC #53 ->To verify whether application displays property details on home
-	 * screen upon clicking Restore link of selected property details in trash
-	 * 
-	 */
-	@Test(priority=0)
-	public void homeScreen() throws InterruptedException, AWTException {
+	
+	
+	  /*TC #25 ->TO Verify whether application allows admin to filter properties details based on the search criteria*/
+	
+	 
+	@Test
+	public void filterProperties() throws InterruptedException   {
 		loginPOM.Loginbutton();
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
-		loginPOM.clickLoginBtn();
+		loginPOM.clickLoginBtn(); 
 		loginPOM.clickProperties();
 		loginPOM.clickAllProperties();
-		loginPOM.trash();
-		loginPOM.restorehome();
+		loginPOM.allDateslist();
+		loginPOM.clickFilterbut();
+		loginPOM.postDetails();
 		screenShot.captureScreenShot("Third");
 	}
-
+	
 }
