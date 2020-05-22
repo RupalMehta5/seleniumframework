@@ -38,74 +38,104 @@ public class LoginPOM {
 	@FindBy(name = "login")
 	private WebElement loginBtn;
 
-	// @FindBy(className="wp-menu-name")
-	@FindBy(xpath = "//div[contains(text(),'Properties')]")
-	private WebElement properties;
+	@FindBy(xpath = "//div[@class='wp-menu-name' and contains(text(),'Users')]")
+	private WebElement users;
 
-	@FindBy(xpath = "//a[contains(text(),'All Properties')]")
-	private WebElement allProperties;
-
-	@FindBy(id = "filter-by-date")
-	private WebElement allDateslist;
-
-	@FindBy(name = "filter_action")
-	private WebElement filterbut;
-
-	@FindBy(xpath = "//td[@data-colname='Posted']/strong")
-	private WebElement post;
-
-	@FindBy(css = "li.trash")
-	private WebElement trash;
-
-	@FindBy(css = "input.button.apply:nth-of-type(2)")
-	private WebElement emptyTrash;
-
-	@FindBy(xpath = "//td[@data-colname='Title']/strong[1]")
-	private WebElement propname;
-	// div[@class='locked-info']/following-sibling::strong[1]
-	// *[@class ='row-actions']/span[1]
-	@FindBy(css = "span.locked-indicator-icon")
-	private WebElement firstProperty;
-
-	/**
-	 * Links Edit,QuickEdit, Trash, View
-	 */
-	@FindBy(css = "span.edit")
-	private WebElement editLink;
-
-	@FindBy(css = "a.editinline")
-	private WebElement quickeditLink;
-
-	@FindBy(css = "a.submitdelete")
-	private WebElement trashLink;
-
-	@FindBy(css = "span.view")
-	private WebElement PreviewLink;
-
-	@FindBy(css = "span.untrash")
-	private WebElement restoreLink;
-
-	@FindBy(css = "a.submitdelete")
-	private WebElement DeleteLink;
-
-	@FindBy(xpath = "//div[@id='message']")
-	private WebElement postmessage;
-
-	@FindBy(css = "li.all")
-	private WebElement allLink;
+	@FindBy(xpath = "//*[@class='wp-first-item current' and contains(text(),'All Users')]")
+	private WebElement allUsers;
 
 	@FindBy(xpath = "//input[@type='search']")
 	private WebElement searchBox;
 
-	@FindBy(xpath = "//input[@value='Search Properties']")
-	private WebElement searchProperties;
+	@FindBy(xpath = "//input[@value='Search Users']")
+	private WebElement searchUsers;
+
+	@FindBy(css = "td.name.column-name")
+	private WebElement firstUser;
+
+	@FindBy(xpath = "//input[@type='checkbox' and @name='users[]']")
+	private WebElement checkBox;
+
+	@FindBy(xpath = "//select[@id='new_role']")
+	private WebElement roleDropdown;
+
+	@FindBy(xpath = "//input[@value='Change']")
+	private WebElement changebutton;
+
+	@FindBy(xpath = "//div[@id='message']")
+	private WebElement rolemessage;
+
+	@FindBy(xpath = "//a[contains(text(),'New Launch ')]")
+	private WebElement newLaunch;
+
+	@FindBy(xpath = "//img[@class= 'wp-post-image']")
+	private WebElement plots;
+
+	@FindBy(xpath = "//input[@name ='your-name']")
+	private WebElement yourName;
+
+	@FindBy(xpath = "//input[@name ='your-email']")
+	private WebElement yourEmail;
+
+	@FindBy(xpath = "//input[@name ='your-subject']")
+	private WebElement yourSubject;
+
+	@FindBy(xpath = "//textarea[@name ='your-message']")
+	private WebElement yourMessage;
+
+	@FindBy(xpath = "//input[@value='Send']")
+	private WebElement sendButton;
+
+	@FindBy(xpath = "//div[@role='alert' and @style='display: block;']")
+	private WebElement errmsg;
+
+	@FindBy(xpath = "//div[contains(text(),'Posts')]")
+	private WebElement posts;
+
+	@FindBy(xpath = "//a[contains(text(),'All Posts')]")
+	private WebElement allPosts;
+
+	@FindBy(xpath = "//a[contains(text(),'Add New')]")
+	private WebElement addNewPost;
+
+	@FindBy(xpath = "//a[contains(text(),'Categories')]")
+	private WebElement addCategory;
+
+	@FindBy(css = "input#tag-name")
+	private WebElement catName;
+
+	@FindBy(css = "input#tag-slug")
+	private WebElement catSlug;
+
+	@FindBy(css = "select#parent")
+	private WebElement patCat;
+
+	@FindBy(css = "textarea#tag-description")
+	private WebElement catDesc;
+
+	@FindBy(xpath = "//input[@value='Add New Category']")
+	private WebElement addNewCat;
+
+	@FindBy(xpath = "//input[@value='Search Categories']")
+	private WebElement searchCategory;
+
+	@FindBy(xpath = "//input[@value='Search Posts']")
+	private WebElement searchPosts;
+
+	@FindBy(xpath = "//a[@class='row-title']")
+	private WebElement actName;
+
+	@FindBy(css = "input#title")
+	private WebElement title;
+
+	@FindBy(css = "textarea#content")
+	private WebElement body;
+
+	@FindBy(css = "input#publish")
+	private WebElement publishbut;
 
 	@FindBy(css = "a.row-title")
-	private WebElement dispalyProperty;
-
-	// @FindBy(xpath = "//*[@id='responsive']//descendant::li[5]/style")
-	@FindBy(css = ".container>ul>li:nth-of-type(5)")
-	private WebElement bloglink;
+	private WebElement displayProperty;
 
 	/**
 	 * Enter username/password and hit login button
@@ -129,69 +159,76 @@ public class LoginPOM {
 
 	}
 
-	/**
-	 * Click properties link
-	 * 
-	 */
-
-	public void clickProperties() throws InterruptedException {
-		wait(properties);
-		this.properties.click();
+	public void changeUserRole() {
+		wait(users);
+		this.users.click();
+		this.allUsers.click();
 
 	}
 
-	/**
-	 * Click Allproperties link
-	 */
-	public void clickAllProperties() {
-		this.allProperties.click();
+	public void searchBox(String checkbox, String role) {
+		wait(searchBox);
+		this.searchBox.sendKeys(checkbox);
+		this.searchUsers.click();
+		String user1 = this.firstUser.getText();
+		if (user1.equalsIgnoreCase(checkbox)) {
+			this.checkBox.click();
+			Assert.assertTrue(this.checkBox.isSelected());
+			Select sec = new Select(roleDropdown);
+			sec.selectByVisibleText(role);
+			this.changebutton.click();
+			String message = this.rolemessage.getText();
+			String actual1 = "Changed roles.";
+			if (message.contains(actual1)) {
+				System.out.println("Changed roles message displayed");
+			}
 
-	}
-
-	/**
-	 * Click Trash link and verify
-	 */
-	public void trash() {
-		this.trash.click();
-		if (this.emptyTrash.isDisplayed()) {
-			System.out.println("Property details present in trash page");
 		}
 	}
 
-	/**
-	 * Click Restore and check in All link property is displayed
-	 */
-	public void restorelink() throws InterruptedException {
+	public void newLaunchData() {
+		Actions act1 = new Actions(driver);
+		act1.moveToElement(newLaunch).perform();
+		wait(plots);
+		this.plots.click();
 
-		Actions act = new Actions(driver);
-		act.moveToElement(firstProperty).perform();
-
-		String propertyName = this.propname.getText();
-		wait(restoreLink);
-		this.restoreLink.click();
-		System.out.println(this.postmessage.getText());
-		this.allLink.click();
-		this.searchBox.sendKeys(propertyName);
-		this.searchProperties.click();
-		String disprop = this.dispalyProperty.getText();
-		if (propertyName.equalsIgnoreCase(disprop)) {
-			System.out.println("Restored property displayed in all links");
-		}
 	}
 
-	/**
-	 * 
-	 * Click restore and check in new tab property details are added
-	 */
-	public void restorehome() throws InterruptedException, AWTException {
+	public void propenquiry(String Name, String Email, String Subject, String Message) {
+		this.yourName.sendKeys(Name);
+		this.yourEmail.sendKeys(Email);
+		this.yourSubject.sendKeys(Subject);
+		this.yourMessage.sendKeys(Message);
+		this.sendButton.click();
+		String err = this.errmsg.getText();
+		if (err.contains("error")) {
+			System.out.println("Error message is displayed");
+		}
 
-		Actions act = new Actions(driver);
-		act.moveToElement(firstProperty).perform();
+	}
 
-		String propertyName3 = this.propname.getText();
-		wait(restoreLink);
-		this.restoreLink.click();
-		System.out.println(this.postmessage.getText());
+	public void postCategory(String Name, String Slug, String PCategory, String Description, String Title, String Body)
+			throws AWTException {
+		this.posts.click();
+		this.addCategory.click();
+		this.catName.sendKeys(Name);
+		this.catSlug.sendKeys(Slug);
+		Select sec = new Select(patCat);
+		sec.selectByVisibleText(PCategory);
+		this.catDesc.sendKeys(Description);
+		this.addNewCat.click();
+		driver.navigate().refresh();
+		this.searchBox.sendKeys(Name);
+		this.searchCategory.click();
+		String act = this.actName.getText();
+		if (Name.equalsIgnoreCase(act)) {
+			System.out.println("Added category displayed in category section");
+		}
+
+		this.addNewPost.click();
+		this.title.sendKeys(Title);
+		this.body.sendKeys(Body);
+		this.publishbut.click();
 		Robot robo = new Robot();
 		robo.keyPress(KeyEvent.VK_CONTROL);
 		robo.keyPress(KeyEvent.VK_T);
@@ -209,50 +246,15 @@ public class LoginPOM {
 			if (!child.equals(parentWindow)) {
 				driver.switchTo().window(child);
 				driver.get("http://realty-real-estate.upskills.in/wp-admin/");
-				this.properties.click();
-				this.allLink.click();
-				this.searchBox.sendKeys(propertyName3);
-				this.searchProperties.click();
-				String disprop = this.dispalyProperty.getText();
-				if (propertyName3.equalsIgnoreCase(disprop)) {
-					System.out.println("Restored property displayed in all links");
+				this.posts.click();
+				this.allPosts.click();
+				this.searchBox.sendKeys(Title);
+				String disprop = this.displayProperty.getText();
+				if (Title.equalsIgnoreCase(disprop)) {
+					System.out.println("added property details are displayed");
 				}
-
 			}
 		}
-
-	}
-
-	/**
-	 * Click on Trash link and delete a property permanently
-	 */
-	public void moveproperty() {
-
-		Actions act = new Actions(driver);
-		act.moveToElement(propname).perform();
-		String propertyName1 = this.propname.getText();
-		System.out.println(propertyName1);
-		wait(editLink);
-		System.out.println("links displayed are " + editLink.getText() + quickeditLink.getText() + " "
-				+ trashLink.getText() + " " + PreviewLink.getText());
-
-		this.trashLink.click();
-		String exp = "1 post moved to the Trash";
-		String actual = this.postmessage.getText();
-		System.out.println(actual);
-		Assert.assertTrue(actual.contains(exp));
-		this.trash.click();
-		String propertyName2 = this.propname.getText();
-		System.out.println(propertyName2);
-		if (propertyName1.contains(propertyName2)) {
-			System.out.println("Property added in trash is displayed");
-		}
-
-		Actions act1 = new Actions(driver);
-		act.moveToElement(firstProperty).perform();
-		wait(DeleteLink);
-		this.DeleteLink.click();
-		System.out.println(this.postmessage.getText());
 
 	}
 
@@ -267,4 +269,5 @@ public class LoginPOM {
 	public void robo() throws AWTException {
 
 	}
+
 }

@@ -54,17 +54,16 @@ public class LoginDBTest {
 	}
 
 
+	/**
+	 *To Verify whether application allows user to send the Data from database in Contact Form Page .
+	 */
 	@Test(dataProvider = "db-inputs", dataProviderClass = LoginDataProviders.class)
-	public void loginDBTest(String userName, String password) {
+	public void loginDBTest(String Name, String Email, String Subject , String Message) {
 		// for demonstration 
 //		genericMethods.getElement("login", "id"); 
-				
-		loginPOM.sendUserName(userName);
-		
-		loginPOM.sendPassword(password);
-		loginPOM.clickLoginBtn();
-		
-		screenShot.captureScreenShot(userName);
+		loginPOM.newLaunchData();
+		loginPOM.propenquiry(Name, Email, Subject, Message);
+		screenShot.captureScreenShot(Name);
 
 	}
 

@@ -13,14 +13,15 @@ import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
 import com.training.pom.LoginPOM;
+import com.training.pom.LoginPOM2;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class LoginTests {
+public class LoginTests2 {
 
 	private WebDriver driver;
 	private String baseUrl;
-	private LoginPOM loginPOM;
+	private LoginPOM2 loginPOM;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -34,7 +35,7 @@ public class LoginTests {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		loginPOM = new LoginPOM(driver);
+		loginPOM = new LoginPOM2(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver);
 		// open the browser
@@ -58,7 +59,10 @@ public class LoginTests {
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
 		loginPOM.clickLoginBtn();
-		
+		loginPOM.clickProperties();
+		loginPOM.clickAllProperties();
+		loginPOM.trash();
+		loginPOM.restorelink();
 		screenShot.captureScreenShot("First");
 	}
 
@@ -74,6 +78,9 @@ public class LoginTests {
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
 		loginPOM.clickLoginBtn();
+		loginPOM.clickProperties();
+		loginPOM.clickAllProperties();
+		loginPOM.moveproperty();
 		screenShot.captureScreenShot("Second");
 	}
 
@@ -88,8 +95,10 @@ public class LoginTests {
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
 		loginPOM.clickLoginBtn();
-		
-		
+		loginPOM.clickProperties();
+		loginPOM.clickAllProperties();
+		loginPOM.trash();
+		loginPOM.restorehome();
 		screenShot.captureScreenShot("Third");
 	}
 
